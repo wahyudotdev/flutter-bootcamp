@@ -22,3 +22,5 @@ class UserAuthState extends AuthState {
   @override
   List<Object?> get props => [status, message, data];
 }
+
+class UserLogoutState extends AuthState {}
