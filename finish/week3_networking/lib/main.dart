@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dio = Dio(BaseOptions(baseUrl: 'http://18.139.2.138:8000/api'));
+    final platform = Platform.isAndroid ? 'android' : 'ios';
+    final dio = Dio(BaseOptions(
+        baseUrl: 'http://18.139.2.138:8000/api',
+        headers: {'platform': platform}));
     return BlocProvider(
       create: (context) => AuthCubit(ApiImpl(dio)),
       child: MaterialApp.router(
