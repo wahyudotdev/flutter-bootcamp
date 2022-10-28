@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:week3_networking/data/api.dart';
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dio = Dio(BaseOptions(baseUrl: 'http://18.139.2.138:8000/api'));
     return BlocProvider(
-      create: (context) => AuthCubit(ApiImpl()),
+      create: (context) => AuthCubit(ApiImpl(dio)),
       child: MaterialApp.router(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
