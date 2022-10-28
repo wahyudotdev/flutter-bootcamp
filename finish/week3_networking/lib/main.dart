@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:dio_logging_interceptor/dio_logging_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:week3_networking/data/api.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     final dio = Dio(BaseOptions(
         baseUrl: 'http://18.139.2.138:8000/api',
         headers: {'platform': platform}));
+    dio.interceptors.add(DioLoggingInterceptor(level: Level.body));
     return BlocProvider(
       create: (context) => AuthCubit(ApiImpl(dio)),
       child: MaterialApp.router(

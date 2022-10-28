@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
   dio: ^4.0.6
+  dio_logging_interceptor: ^1.0.1
 
 dev_dependencies:
   flutter_test:
