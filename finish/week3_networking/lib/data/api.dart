@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:week3_networking/models/user.dart';
 
 abstract class Api {
@@ -5,21 +8,25 @@ abstract class Api {
 }
 
 class ApiImpl implements Api {
-  final _users = [
-    User(name: 'Developer', email: 'developer@gmail.com'),
-    User(name: 'Wahyu', email: 'wahyu@gmail.com'),
-  ];
+  final Dio dio;
+
+  ApiImpl(this.dio);
 
   @override
   Future<User> login(String email, String password) async {
-    return Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        return _users.firstWhere(
-          (element) => element.email == email && password == 'crocodichebat',
-          orElse: () => throw Exception('Login failed'),
-        );
-      },
-    );
+    try {
+      final formData = FormData.fromMap({
+        'email': email,
+        'password': password,
+      });
+
+      final response = await dio.post('/user/login', data: formData);
+      if (response.statusCode == HttpStatus.ok) {
+        return User.fromJson(response.data['data']);
+      }
+      throw Exception('Error code ${response.statusCode.toString()}');
+    } catch (e) {
+      rethrow;
+    }
   }
 }
