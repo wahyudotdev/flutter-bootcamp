@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final platform = Platform.isAndroid ? 'android' : 'ios';
     final dio = Dio(BaseOptions(
-        baseUrl: 'http://18.139.2.138:8000/api',
+        baseUrl: 'https://go-flutter-bootcamp-production.up.railway.app/api',
         headers: {'platform': platform}));
     dio.interceptors.add(TokenInterceptor());
     dio.interceptors.add(DioLoggingInterceptor(level: Level.body));
