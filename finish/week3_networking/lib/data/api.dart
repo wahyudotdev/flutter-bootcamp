@@ -1,32 +1,17 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
+import 'package:week3_networking/models/api_response.dart';
 import 'package:week3_networking/models/user.dart';
+part 'api.g.dart';
 
+@RestApi()
 abstract class Api {
-  Future<User> login(String email, String password);
-}
+  factory Api(Dio dio) = _Api;
 
-class ApiImpl implements Api {
-  final Dio dio;
-
-  ApiImpl(this.dio);
-
-  @override
-  Future<User> login(String email, String password) async {
-    try {
-      final formData = FormData.fromMap({
-        'email': email,
-        'password': password,
-      });
-
-      final response = await dio.post('/user/login', data: formData);
-      if (response.statusCode == HttpStatus.ok) {
-        return User.fromJson(response.data['data']);
-      }
-      throw Exception('Error code ${response.statusCode.toString()}');
-    } catch (e) {
-      rethrow;
-    }
-  }
+  @POST('/user/login')
+  @FormUrlEncoded()
+  Future<ApiResponse<User?>> login(
+    @Field('email') String email,
+    @Field('password') String password,
+  );
 }
