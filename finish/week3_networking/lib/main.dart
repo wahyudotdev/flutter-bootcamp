@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     dio.interceptors.add(TokenInterceptor());
     dio.interceptors.add(DioLoggingInterceptor(level: Level.body));
     return BlocProvider(
-      create: (context) => AuthCubit(ApiImpl(dio)),
+      create: (context) => AuthCubit(Api(dio)),
       child: MaterialApp.router(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
