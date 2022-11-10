@@ -11,7 +11,6 @@ class TokenInterceptor extends QueuedInterceptorsWrapper {
   final FlutterSecureStorage _storage;
 
   static const authTokenKey = 'AUTH_TOKEN';
-  static const fcmTokenKey = 'FCM_TOKEN';
   static const expiredMessage = 'expired_token';
 
   TokenInterceptor(this._storage);
