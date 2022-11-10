@@ -5,7 +5,7 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = week3_networking
+PRODUCT_NAME = week4_dependency_injection
 
 // The application's bundle identifier
 PRODUCT_BUNDLE_IDENTIFIER = com.example.week2StateManager

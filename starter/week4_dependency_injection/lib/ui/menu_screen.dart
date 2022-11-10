@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:week3_networking/ui/home/home_screen.dart';
-import 'package:week3_networking/ui/profile/profile_screen.dart';
+import 'package:week4_dependency_injection/ui/home/home_screen.dart';
+import 'package:week4_dependency_injection/ui/profile/profile_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});

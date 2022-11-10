@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:week3_networking/data/api.dart';
-import 'package:week3_networking/models/user.dart';
-import 'package:week3_networking/utils/status.dart';
+import 'package:week4_dependency_injection/data/api.dart';
+import 'package:week4_dependency_injection/models/user.dart';
+import 'package:week4_dependency_injection/utils/status.dart';
 
 part 'auth_state.dart';
 

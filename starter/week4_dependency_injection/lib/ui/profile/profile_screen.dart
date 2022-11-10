@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:week3_networking/ui/cubit/auth_cubit.dart';
-import 'package:week3_networking/ui/widgets/app_button.dart';
-import 'package:week3_networking/utils/status.dart';
+import 'package:week4_dependency_injection/ui/cubit/auth_cubit.dart';
+import 'package:week4_dependency_injection/ui/widgets/app_button.dart';
+import 'package:week4_dependency_injection/utils/status.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

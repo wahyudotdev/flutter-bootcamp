@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:week3_networking/ui/login_screen.dart';
-import 'package:week3_networking/ui/menu_screen.dart';
+import 'package:week4_dependency_injection/ui/login_screen.dart';
+import 'package:week4_dependency_injection/ui/menu_screen.dart';
 
 final router = GoRouter(routes: [
   GoRoute(

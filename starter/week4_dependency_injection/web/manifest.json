@@ -1,6 +1,6 @@
 {
-    "name": "week3_networking",
-    "short_name": "week3_networking",
+    "name": "week4_dependency_injection",
+    "short_name": "week4_dependency_injection",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

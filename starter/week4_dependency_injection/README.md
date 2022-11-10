@@ -1,4 +1,4 @@
-# week3_networking
+# week4_dependency_injection
 
 A new Flutter project.
 

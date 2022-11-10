@@ -4,10 +4,12 @@ import 'package:dio/dio.dart';
 import 'package:dio_logging_interceptor/dio_logging_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:week3_networking/data/api.dart';
-import 'package:week3_networking/ui/cubit/auth_cubit.dart';
-import 'package:week3_networking/ui/router.dart';
-import 'package:week3_networking/utils/token_interceptor.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:week4_dependency_injection/config/config.dart';
+import 'package:week4_dependency_injection/data/api.dart';
+import 'package:week4_dependency_injection/ui/cubit/auth_cubit.dart';
+import 'package:week4_dependency_injection/ui/router.dart';
+import 'package:week4_dependency_injection/utils/token_interceptor.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,10 +21,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final platform = Platform.isAndroid ? 'android' : 'ios';
-    final dio = Dio(BaseOptions(
-        baseUrl: 'https://go-flutter-bootcamp-production.up.railway.app/api',
-        headers: {'platform': platform}));
-    dio.interceptors.add(TokenInterceptor());
+    final dio = Dio(
+        BaseOptions(baseUrl: Config.baseUrl, headers: {'platform': platform}));
+    dio.interceptors.add(TokenInterceptor(const FlutterSecureStorage()));
     dio.interceptors.add(DioLoggingInterceptor(level: Level.body));
     return BlocProvider(
       create: (context) => AuthCubit(Api(dio)),
