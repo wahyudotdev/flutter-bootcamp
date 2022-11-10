@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:week4_dependency_injection/data/api.dart';
 import 'package:week4_dependency_injection/models/user.dart';
 import 'package:week4_dependency_injection/utils/status.dart';
 
 part 'auth_state.dart';
 
+@injectable
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._api) : super(AuthInitial());
 
