@@ -15,7 +15,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(const UserAuthState(status: Status.loading));
     try {
       final response = await _api.login(email, password);
-      emit(UserAuthState(status: Status.success, data: response));
+      emit(UserAuthState(status: Status.success, data: response.data));
     } catch (e) {
       emit(UserAuthState(status: Status.error, message: e.toString()));
     }
