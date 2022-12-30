@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:week1_basic_layouting/profile.dart';
 
 import 'detail_screen.dart';
@@ -46,8 +47,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molest
         itemCount: profiles.length,
         itemBuilder: (BuildContext context, int index) => ItemProfile(
           data: profiles[index],
-          onClick: (data) => Navigator.of(context).push(MaterialPageRoute(
-              builder: (builder) => DetailScreen(data: data))),
+          onClick: (data) => context.push('/detail', extra: data),
         ),
       ),
     );

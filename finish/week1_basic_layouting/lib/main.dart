@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:week1_basic_layouting/home_screen.dart';
+import 'package:week1_basic_layouting/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
+      routeInformationProvider: router.routeInformationProvider,
     );
   }
 }
